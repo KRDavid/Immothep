@@ -12,7 +12,7 @@ def read_root():
     return {"Hello": "World"}
 
 
-@app.get("/items/{item_id}")
+@app.get("/api/estimate/{item_id}")
 def read_item(item_id: int, q: Optional[str] = None):
     name = dic[item_id]
     return {"q": q, "item_id": item_id, "item_name": name}
