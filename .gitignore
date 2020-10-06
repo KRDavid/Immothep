@@ -3,7 +3,6 @@
 data/RAW/
 data/CURATED/
 data/OUTPUT/
-data/CSV_FINI/
 .ipynb_checkpoints/
 .vscode/
 __pycache__/
