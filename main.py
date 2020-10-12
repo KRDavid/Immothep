@@ -1,8 +1,8 @@
-
-
+from functions import predict
+from functions import zip_dictionnary
 from typing import Optional
-
 from fastapi import FastAPI
+
 
 app = FastAPI()
 
@@ -14,5 +14,6 @@ def read_root():
 
 @app.get("/api/estimate/{code_po},{surface_t},{surface_b},{nb_pieces}")
 def read_item(code_po: int, surface_t: int, surface_b: int, nb_pieces: int):
-
-    return {"estimation" : 0}
+    prix_moyen = zip_dictionnary.prix_moyen(code_po)
+    prix_estime = predict.prediction(prix_moyen, surface_t, surface_b, nb_pieces)
+    return {"estimation" : prix_estime}
