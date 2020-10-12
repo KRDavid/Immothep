@@ -4,6 +4,7 @@ data/RAW/
 data/CURATED/
 data/OUTPUT/
 data/SAMPLE/
+model/
 .ipynb_checkpoints/
 .vscode/
 __pycache__/

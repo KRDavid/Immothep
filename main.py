@@ -7,8 +7,6 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-dic = {0: "Chocolat", 1: "Mcdo", 2: "BK", 3: "Gauffres", 4: "gpudidé", 5: "PC", 6: "PS5", 7: "HTC Cosmos", 8: "MOVA", 9: "Saucisson"}
-
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
