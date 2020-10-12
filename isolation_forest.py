@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from sklearn.ensemble import IsolationForest
 
 
-df = pd.read_csv('./data/CURATED/csv_clean_1.csv')
+df = pd.read_csv('./data/CURATED/csv_clean_bordeaux.csv')
 
 
 model = IsolationForest(n_estimators = 100, max_samples = 'auto', contamination = 'auto', max_features = 1)
@@ -23,4 +23,4 @@ anomaly=df.loc[df['anomaly'] == -1]
 anomaly_index = list(anomaly.index)
 print(anomaly)
 
-anomaly.to_csv('./data/CURATED/anomaly_csv_clean_1.csv')
+anomaly.to_csv('./data/CURATED/anomaly_csv_clean_bordeaux.csv')
