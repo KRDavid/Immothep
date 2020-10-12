@@ -1,3 +1,5 @@
+
+
 from typing import Optional
 
 from fastapi import FastAPI
@@ -12,7 +14,7 @@ def read_root():
     return {"Hello": "World"}
 
 
-@app.get("/api/estimate/{item_id}")
-def read_item(item_id: int, q: Optional[str] = None):
-    name = dic[item_id]
-    return {"q": q, "item_id": item_id, "item_name": name}
+@app.get("/api/estimate/{code_po},{surface_t},{surface_b},{nb_pieces}")
+def read_item(code_po: int, surface_t: int, surface_b: int, nb_pieces: int):
+
+    return {"estimation" : 0}
