@@ -32,15 +32,10 @@ class Splitter:
             column_to_split_on (str ou int): nom de la colonne a partir de laquelle il faut créer les splits
             output_folder (str): nom du fichier dans lequel placer les fichiers splittés
         """
-        
-        if not os.path.exists(f"{self.data_path}/CURATED/{output_folder}"):
-            os.makedirs(f"{self.data_path}/CURATED/{output_folder}")
-            
         csv.field_size_limit(10000000)
-
         with open(f"{self.data_path}/RAW/{file_name}", encoding='utf-8') as file:
             file_dict = csv.DictReader(file, delimiter=self.delimiter)
-            
+
             already_opened_files = {}
 
             for row in file_dict:
@@ -49,7 +44,8 @@ class Splitter:
                 file_column = file_column.replace('/', '.')
 
                 if file_column not in already_opened_files:
-                    out_file = open(f"{self.data_path}/CURATED/{output_folder}/{file_column}.csv",'w', encoding='utf-8')
+                    out_file = open(f"{self.data_path}/CURATED/{output_folder}/{file_column}.csv",
+                                    'w', encoding='utf-8')
                     dict_writer = csv.DictWriter(out_file, fieldnames=file_dict.fieldnames)
                     dict_writer.writeheader()
                     already_opened_files[file_column] = out_file, dict_writer
