@@ -31,7 +31,7 @@ uvicorn main:app --reload
 ```
 
 Après une petite attente, le serveur est lancé, ouvrez un navigateur et rendez vous à l'adresse suivante :
-"http://127.0.0.1:8000/api/estimate/code_po=***code postal***&surface_t=***Surace terrain***&surface_b=***Surface batiment***&nb_pieces=***Nombre de pièces***"
+"127.0.0.1:8000/api/estimate/code_po=***code postal***&surface_t=***Surace terrain***&surface_b=***Surface batiment***&nb_pieces=***Nombre de pièces***"
 
 Bingo ! L'estimation du bien est devant vos yeux !
 
