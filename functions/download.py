@@ -6,7 +6,7 @@ import sys
 import os
 import zipfile
 
-class downloader():
+class Downloader():
     """Télécharge et extrait le fichier, pour plusieur répertoires :
     créer plusieures instances
     """
