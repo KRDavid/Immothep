@@ -40,13 +40,13 @@ class RandomForest(RandomForestRegressor):
         RandomForestRegressor.fit(self, self.X_train, self.Y_train)
 
     # A method for saving object data to JSON file
-    def save_json(self, filepath):
+    def save_json(self, filepath, filepath_data):
         """Sauvegarde du modèle
 
         Args:
             filepath (str): chemin relatif vers le fichier json
         """
-        self.data.to_csv('./model/data.csv')
+        self.data.to_csv(filepath_data)
         dict_ = {}
         dict_['n_estimators'] = self.n_estimators
         dict_['random_state'] = self.random_state
@@ -59,7 +59,7 @@ class RandomForest(RandomForestRegressor):
             file.write(json_txt)
 
     # A method for loading data from JSON file
-    def load_json(self, filepath):
+    def load_json(self, filepath, filepath_data):
         """Chargement du modèle du modèle
 
         Args:
@@ -67,7 +67,7 @@ class RandomForest(RandomForestRegressor):
         """
         with open(filepath, 'r') as file:
             dict_ = json.load(file)
-        self.data = pd.read_csv('./model/data.csv', usecols=['Nombre pieces principales', 'Surface terrain', 'Surface reelle bati', 'Prix moyen m²'])
+        self.data = pd.read_csv(filepath_data, usecols=['Nombre pieces principales', 'Surface terrain', 'Surface reelle bati', 'Prix moyen m²'])
         self.n_estimators = dict_['n_estimators']
         self.random_state = dict_['random_state']
         self.X_train = np.asarray(dict_['X_train']) if dict_['X_train'] != 'None' else None
